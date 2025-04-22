@@ -3,7 +3,6 @@ const jwt = require('jsonwebtoken');
 const ENV = require('../config/env');
 const createError = require('../middlewares/error');
 
-
 const Users = require("../models/user.model");
 
 const postUser = async (req, res) => {
