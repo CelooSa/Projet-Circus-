@@ -22,7 +22,7 @@ const artistSchema = new mongoose.Schema({
     default: null
   },
   picture_artist: {
-    type: String, // chemin ou URL
+    type: String, 
     default: null
   },
   biography_artist: {
@@ -34,8 +34,11 @@ const artistSchema = new mongoose.Schema({
     required: true
   }
 }, {
-  collection: 'artists', // nom de la collection dans MongoDB
-  timestamps: true // ajoute automatiquement createdAt et updatedAt
+  collection: 'artists', 
+  timestamps: true 
 });
+
+
+
 
 module.exports = mongoose.model('artists', artistSchema);

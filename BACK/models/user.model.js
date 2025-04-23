@@ -35,6 +35,6 @@ const userShema = mongoose.Schema(
     }, { timestamps: { createdAt: true } }
 )
 
-module.exports = mongoose.model('Users', userShema)
+module.exports = mongoose.model('users', userShema)
 
 

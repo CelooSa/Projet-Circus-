@@ -16,7 +16,7 @@ const showSchema = mongoose.Schema(
 
         },
 
-        duration:{
+        duration: {
             type: Number,
             required: true
         },
@@ -69,11 +69,10 @@ const showSchema = mongoose.Schema(
         },
 
 
-
     },
 
     { Timestamp: { createdAt: true } }
 )
 
 
-module.exports = mongoose.model('Show', showSchema)
+module.exports = mongoose.model('show', showSchema)

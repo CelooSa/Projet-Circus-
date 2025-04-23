@@ -1,19 +1,19 @@
-constconst mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-const performanceSchema = new mongoose.Schema({
-  id_performance: {
+const actSchema = new mongoose.Schema({
+  id_act: {
     type: Number,
     unique: true,
     required: true
   },
-  description_performance: {
+  description_act: {
     type: String
   },
-  name_performance: {
+  name_act: {
     type: String,
     required: true
   },
-  duration_performance: {
+  duration_act: {
     type: Number,
     required: true
   }
@@ -22,4 +22,6 @@ const performanceSchema = new mongoose.Schema({
 });
 
 
-module.exports = mongoose.model('performance', performanceSchema)
+
+
+module.exports = mongoose.model('act', actSchema);

@@ -92,5 +92,5 @@ module.exports = {
     getAllOrders,
     getOrderById,
     deleteOrder,
-    updateOrder
+    
 };
