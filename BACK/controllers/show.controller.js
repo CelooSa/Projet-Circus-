@@ -12,7 +12,7 @@ const postShow = async (req, res) => {
 
     try {
         await Show.create(req.body);
-        res.status(201).json('Nouveau spectacle ajouté');
+        res.status(201).json('New show added');
     } catch (error) {
         console.log('Error : ', error);
         res.status(500).json(error.messsage)

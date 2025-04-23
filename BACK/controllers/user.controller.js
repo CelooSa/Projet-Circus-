@@ -3,12 +3,12 @@ const jwt = require('jsonwebtoken');
 const ENV = require('../config/env');
 const createError = require('../middlewares/error');
 
-const Users = require("../models/user.model");
+const User = require('../models/user.model');
 
 const postUser = async (req, res) => {
     try {
         const passwordHashed = await bcrypt.hash(req.body.password, 10);
-        const new_user = await Users.create({
+        const new_user = await User.create({
             ...req.body,
             password: passwordHashed
         });
