@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const artistSchema = new mongoose.Schema({
+const artistSchema = mongoose.Schema({
   name_artist: {
     type: String,
     required: true
@@ -22,7 +22,7 @@ const artistSchema = new mongoose.Schema({
     default: null
   },
   picture_artist: {
-    type: String, 
+    type: String,
     default: null
   },
   biography_artist: {
@@ -34,11 +34,11 @@ const artistSchema = new mongoose.Schema({
     required: true
   }
 }, {
-  collection: 'artists', 
-  timestamps: true 
+
+  timestamps: { createdAt: true }
 });
 
 
 
 
-module.exports = mongoose.model('artists', artistSchema);
+module.exports = mongoose.model('artist', artistSchema);

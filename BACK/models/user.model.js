@@ -32,8 +32,9 @@ const userShema = mongoose.Schema(
             minLengh: 12,
             required: true
         }
-    }, { timestamps: { createdAt: true } }
-)
+    }, {
+    timestamps: { createdAt: true }
+});
 
 module.exports = mongoose.model('users', userShema)
 

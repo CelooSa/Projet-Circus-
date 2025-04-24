@@ -16,9 +16,13 @@ const actSchema = new mongoose.Schema({
   duration_act: {
     type: Number,
     required: true
-  }
+  },
+  name_artist: {
+    type: String,
+    required: true  
+  },
 }, {
-  timestamps: true
+  timestamps: { createdAt: true }
 });
 
 

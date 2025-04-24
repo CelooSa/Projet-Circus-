@@ -22,7 +22,11 @@ const orderSchema = new Schema(
             type: Number,
             required: true,
         },
-    });
+    }, {
+    timestamps: { createdAt: true }
+});
+
+
 
 
 module.exports = mongoose.model('order', orderSchema);
