@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router';
 import { AnimatePresence } from 'framer-motion';
-import Home from './pages/Home';
+
 import SpectaclesFeu from './pages/SpectaclesFeu';
+
 
 
 import './styles/Global.scss';
