@@ -1,14 +1,39 @@
-// HomeStyle.scss - Style plus lumineux pour la page d'accueil
 
-// Variables de couleurs 
-$primary-color: #6b4ee6; // Violet clair
-$accent-color: #ff7b54; // Orange chaleureux
-$background-light: #f9f7ff; // Fond très clair avec une teinte violette
-$text-dark: #2e2a4a; // Texte foncé mais pas noir
-$text-light: #ffffff; // Texte clair
-$gradient-overlay: linear-gradient(rgba(107, 78, 230, 0.1), rgba(87, 58, 210, 0.2)); // Superposition plus claire
 
-// Styles généraux
+$primary-color: #6b4ee6; 
+$accent-color: #ff7b54; 
+$background-light: #f9f7ff; 
+$text-dark: #2e2a4a; 
+$text-light: #ffffff; 
+$gradient-overlay: linear-gradient(rgba(107, 78, 230, 0.1), rgba(87, 58, 210, 0.2)); 
+
+
+.carousel-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+
+  .carousel-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+
+  
+
+
+
+
+
+
+}
+
+
+
 .home-container {
   font-family: 'Livvic', sans-serif;
   color: $text-dark;
@@ -18,7 +43,7 @@ $gradient-overlay: linear-gradient(rgba(107, 78, 230, 0.1), rgba(87, 58, 210, 0.
   position: relative;
 }
 
-// Header
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -99,11 +124,11 @@ $gradient-overlay: linear-gradient(rgba(107, 78, 230, 0.1), rgba(87, 58, 210, 0.
   }
 }
 
-// Hero section
+
 .hero {
   position: relative;
   height: 90vh;
-  background-image: url('/path/to/your/hero-image.jpg'); // À remplacer par votre image
+  background-image: url('/path/to/your/hero-image.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -154,7 +179,7 @@ $gradient-overlay: linear-gradient(rgba(107, 78, 230, 0.1), rgba(87, 58, 210, 0.
   }
 }
 
-// Introduction section
+
 .intro {
   padding: 6rem 2rem 4rem;
   text-align: center;
@@ -190,7 +215,7 @@ $gradient-overlay: linear-gradient(rgba(107, 78, 230, 0.1), rgba(87, 58, 210, 0.
   }
 }
 
-// Shortcuts section
+
 .shortcuts {
   display: flex;
   flex-wrap: wrap;
@@ -250,7 +275,7 @@ $gradient-overlay: linear-gradient(rgba(107, 78, 230, 0.1), rgba(87, 58, 210, 0.
   }
 }
 
-// Footer
+
 .footer {
   background-color: white;
   padding: 4rem 2rem 2rem;

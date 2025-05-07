@@ -2,7 +2,48 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import FireTransition from '../components/FireTransition';
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import '../styles/HomeStyle.scss';
+
+
+const ImageCarousel = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  };
+
+
+  const images = [
+    "/FRONT/src/images/Equilibriste_poetique_ballon.png",
+    "/FRONT/src/images/Violoncelle_et_trapèze.png",
+   ];
+
+   return (
+    <motion.div
+    className="carousel-container"
+    initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.8, duration: 0.8 }}
+    >
+      <Slider {...settings}>
+        {images.map((image, index) => (
+          <div key={index}>
+            <img src={image} alt={`Slide ${index}`} className="carousel-image" />
+          </div>
+        ))}
+      </Slider>
+    </motion.div>
+  );
+};
+
+
 
 const Home = () => {
   return (
@@ -13,7 +54,7 @@ const Home = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.8 }}
     >
-      {/* Header avec navigation */}
+      
       <motion.header 
         className="header"
         initial={{ y: -50, opacity: 0 }}
@@ -33,7 +74,6 @@ const Home = () => {
         </nav>
       </motion.header>
 
-      {/* Section Héro avec animation */}
       <motion.section 
         className="hero"
         initial={{ y: -30, opacity: 0 }}
@@ -59,7 +99,6 @@ const Home = () => {
         </div>
       </motion.section>
 
-      {/* Section introduction avec citation et élément de feu */}
       <motion.section 
         className="intro"
         initial={{ opacity: 0 }}
@@ -74,7 +113,6 @@ const Home = () => {
         </p>
       </motion.section>
 
-      {/* Section des raccourcis avec animation séquentielle */}
       <motion.section 
         className="shortcuts"
         initial={{ opacity: 0 }}
@@ -115,7 +153,6 @@ const Home = () => {
         </Link>
       </motion.section>
 
-      {/* Pied de page */}
       <motion.footer 
         className="footer"
         initial={{ opacity: 0 }}
