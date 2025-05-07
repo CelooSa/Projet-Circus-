@@ -6,6 +6,10 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../styles/HomeStyle.scss';
+import logoVesperen from '../assets/Logo-compagnie-Vesperen.webp';
+
+
+
 
 
 const ImageCarousel = () => {
@@ -21,8 +25,8 @@ const ImageCarousel = () => {
 
 
   const images = [
-    "/FRONT/src/images/Equilibriste_poetique_ballon.png",
-    "/FRONT/src/images/Violoncelle_et_trapèze.png",
+    "images/Equilibriste_poetique_ballon.png",
+    "images/Violoncelle_et_trapèze.png",
    ];
 
    return (
@@ -62,7 +66,10 @@ const Home = () => {
         transition={{ duration: 0.5 }}
       >
         <div className="logo">
-          <Link to="/">Compagnie Vesperen</Link>
+          <Link to="/">
+          <img src={logoVesperen} alt="Logo Compagnie Vesperen" className='logo-img'/>
+          <span className='logo-text'>Compagnie Vesperen</span>
+          </Link>
         </div>
         <nav className="main-nav">
           <ul>
