@@ -1,12 +1,14 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFade, Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/effect-fade';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import './ArtistCarousel.scss';
-import ArtistCard from './ArtistCard';
+import 'swiper/scss';
+import 'swiper/scss/effect-fade';
+import 'swiper/scss/navigation';
+import 'swiper/scss/pagination';
+
+import '../styles/ArtistsCarousel.scss';
+
+import ArtistCard from '../components/ArtistCard';
 
 const artists = [
   {

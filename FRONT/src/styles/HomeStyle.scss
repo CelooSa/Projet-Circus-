@@ -1,0 +1,327 @@
+// HomeStyle.scss - Style plus lumineux pour la page d'accueil
+
+// Variables de couleurs 
+$primary-color: #6b4ee6; // Violet clair
+$accent-color: #ff7b54; // Orange chaleureux
+$background-light: #f9f7ff; // Fond très clair avec une teinte violette
+$text-dark: #2e2a4a; // Texte foncé mais pas noir
+$text-light: #ffffff; // Texte clair
+$gradient-overlay: linear-gradient(rgba(107, 78, 230, 0.1), rgba(87, 58, 210, 0.2)); // Superposition plus claire
+
+// Styles généraux
+.home-container {
+  font-family: 'Livvic', sans-serif;
+  color: $text-dark;
+  background-color: $background-light;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+// Header
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 20px rgba(107, 78, 230, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $primary-color;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    position: relative;
+    
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 30px;
+      height: 3px;
+      background: $accent-color;
+    }
+  }
+}
+
+.main-nav {
+  ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+    li {
+      margin-left: 2rem;
+      
+      a {
+        color: $text-dark;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 0.5rem 0;
+        position: relative;
+        transition: color 0.3s;
+        
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: $accent-color;
+          transform: scaleX(0);
+          transform-origin: right;
+          transition: transform 0.3s ease-out;
+        }
+        
+        &:hover {
+          color: $primary-color;
+          
+          &::after {
+            transform: scaleX(1);
+            transform-origin: left;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Hero section
+.hero {
+  position: relative;
+  height: 90vh;
+  background-image: url('/path/to/your/hero-image.jpg'); // À remplacer par votre image
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $gradient-overlay;
+  }
+}
+
+.hero-overlay {
+  text-align: center;
+  padding: 2rem;
+  z-index: 1;
+  max-width: 90%;
+}
+
+.hero-title {
+  color: $text-light;
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hero-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: $accent-color;
+  color: $text-light;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 15px rgba(255, 123, 84, 0.3);
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(255, 123, 84, 0.4);
+  }
+}
+
+// Introduction section
+.intro {
+  padding: 6rem 2rem 4rem;
+  text-align: center;
+  background-color: white;
+  position: relative;
+}
+
+.fire-transition-container {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 5;
+}
+
+.intro-quote {
+  font-size: 1.8rem;
+  font-style: italic;
+  color: $primary-color;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+  position: relative;
+  
+  &::before, &::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, rgba(107, 78, 230, 0), $primary-color, rgba(107, 78, 230, 0));
+    margin: 2rem auto;
+  }
+}
+
+// Shortcuts section
+.shortcuts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 3rem 2rem 6rem;
+}
+
+.shortcut-card {
+  background: white;
+  border-radius: 15px;
+  width: 300px;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: $text-dark;
+  box-shadow: 0 8px 30px rgba(107, 78, 230, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+  position: relative;
+  padding: 2rem;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, $primary-color, $accent-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease-out;
+  }
+  
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(107, 78, 230, 0.2);
+    
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  p {
+    opacity: 0.8;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+}
+
+// Footer
+.footer {
+  background-color: white;
+  padding: 4rem 2rem 2rem;
+  color: $text-dark;
+  border-top: 1px solid rgba(107, 78, 230, 0.1);
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  
+  h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+    
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 30px;
+      height: 3px;
+      background: $accent-color;
+    }
+  }
+  
+  p {
+    margin-bottom: 0.7rem;
+    opacity: 0.8;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    li {
+      margin-bottom: 0.7rem;
+      
+      a {
+        color: $text-dark;
+        text-decoration: none;
+        transition: color 0.3s;
+        
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(107, 78, 230, 0.1);
+  
+  p {
+    opacity: 0.7;
+    font-size: 0.9rem;
+  }
+}
