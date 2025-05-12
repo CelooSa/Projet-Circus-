@@ -1,0 +1,42 @@
+.artist-carousel {
+    margin: 50px auto;
+    max-width: 900px;
+  }
+  
+  .artist-card {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .artist-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  }
+  
+  .artist-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .artist-card h3 {
+    font-family: 'Livvic-Regular', sans-serif;
+    color: #333;
+    font-size: 24px;
+  }
+  
+  .artist-card p {
+    font-family: 'Just Another Hand-Regular', cursive;
+    color: #555;
+    font-size: 16px;
+  }
+  
+  .artist-card p strong {
+    color: #333;
+  }
+  
