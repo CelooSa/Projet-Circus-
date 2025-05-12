@@ -11,6 +11,9 @@ const ENV = {
 
     TOKEN: process.env.TOKEN,
     PORT_APPLICATION_FRONT: process.env.PORT_APPLICATION_FRONT,
+
+    EMAIL_USER:process.env.EMAIL_USER,
+    EMAIL_PASS:process.env.EMAIL_PASS,
 }
 
 module.exports = ENV;
