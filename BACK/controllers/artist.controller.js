@@ -7,7 +7,6 @@ const createError = require('../middlewares/error');
 
 const artist = require('../models/artist.model');
 
-
 const postArtist = async (req, res) => {
 
     try {
