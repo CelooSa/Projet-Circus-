@@ -1,21 +1,33 @@
+// import { Router } from 'express';
+
+const Router = require('express')
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const ENV = require('../config/env');
 const createError = require('../middlewares/error');
-
+const sendEmail = require('../services/nodemailer');
 const User = require('../models/user.model');
+
 
 const postUser = async (req, res) => {
     try {
         const passwordHashed = await bcrypt.hash(req.body.password, 10);
         const new_user = await User.create({
             ...req.body,
-            password: passwordHashed
+            password: passwordHashed,
+            isVerified: false,
         });
 
+        const verificationToken = jwt.sign(
+            {id: new_user._id},
+            ENV.TOKEN,
+            {expiresIn: '5m'}
+        );
+        await sendEmail(req.body, verificationToken)
+
         res.status(201).json({
-            message: "User created !",
-            new_user, // si ok message 
+            message: "User created and Email send!",
+            new_user,
         });
 
     } catch (error) {
@@ -23,6 +35,25 @@ const postUser = async (req, res) => {
         res.status(500).json(error.message);
     }
 };
+
+const verifyEmail = async (req, res, next) => {
+    try {
+        const {token} = req.params;
+
+        const decoded = jwt.verify(token, ENV.TOKEN);
+
+        await Users.findByIdAndUpdate(decoded.id, {isVerified: true}, {
+            new: true,
+        });
+
+        return res.status(200).json({message: 'Email vérifié avec succès!'});
+        }catch (error) {
+            console.error( 'Erreur de vérification:', error);
+            return res.sttatus(400).json({ message: 'Lien invalide ou expiré.'});
+        }
+    };
+
+
 
 const signIn = async (req, res) => {
     try {
@@ -46,6 +77,15 @@ const signIn = async (req, res) => {
                 secure: false,
             })
             .status(200).json(others);
+
+        if (!user.isVerified) {
+            return res.status(403).json({
+                message: `Veuillez vérifier votre email afin d'accéder à votre compte.` });
+        }
+        
+        
+
+        Router.put("/verify/:token", verifyEmail)
 
     } catch (error) {
         console.log('Error :', error.message)
@@ -113,11 +153,15 @@ const updateUser = async (req, res, next) => {
     }
 };
 
+
+
+
 module.exports = {
     postUser,
     signIn,
     getAllUsers,
     getUserById,
     deleteUser,
-    updateUser
+    updateUser,
+    verifyEmail
 };

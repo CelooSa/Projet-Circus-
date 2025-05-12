@@ -12,6 +12,7 @@ import './styles/HomeStyle.scss';
 import './styles/ArtistsCarousel.scss';
 
 import './App.css';
+import VerifyEmail from './pages/VerifyEmail';
 
 function AppWrapper() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/spectacles-feu" element={<SpectaclesFeu />} />
         <Route path="/artistes" element={<Artistes />} /> 
+        <Route path='/verify/:token' element={<VerifyEmail />} />
       </Routes>
     </AnimatePresence>
   );
