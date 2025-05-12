@@ -1,11 +1,13 @@
-import { Router } from 'express';
+// import { Router } from 'express';
 
+const Router = require('express')
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const ENV = require('../config/env');
 const createError = require('../middlewares/error');
 const sendEmail = require('../services/nodemailer');
 const User = require('../models/user.model');
+
 
 const postUser = async (req, res) => {
     try {
@@ -17,7 +19,7 @@ const postUser = async (req, res) => {
         });
 
         const verificationToken = jwt.sign(
-            {id: userCreated._id},
+            {id: new_user._id},
             ENV.TOKEN,
             {expiresIn: '5m'}
         );
@@ -34,7 +36,7 @@ const postUser = async (req, res) => {
     }
 };
 
-export const verifyEmail = async (req, res, next) => {
+const verifyEmail = async (req, res, next) => {
     try {
         const {token} = req.params;
 
@@ -81,9 +83,9 @@ const signIn = async (req, res) => {
                 message: `Veuillez vérifier votre email afin d'accéder à votre compte.` });
         }
         
-        const UserController = require('../controllers/user.controller');
+        
 
-        Router.put("/verify/:token", UserController.verifyEmail)
+        Router.put("/verify/:token", verifyEmail)
 
     } catch (error) {
         console.log('Error :', error.message)
@@ -160,5 +162,6 @@ module.exports = {
     getAllUsers,
     getUserById,
     deleteUser,
-    updateUser
+    updateUser,
+    verifyEmail
 };
