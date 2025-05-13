@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../styles/HomeStyle.scss';
 import logoVesperen from '../assets/Logo-compagnie-Vesperen.webp';
-
+import Register from '../pages/auth/Register';
 
 
 

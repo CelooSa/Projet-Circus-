@@ -2,8 +2,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-//import Register2 from './pages/auth/Register2'; 
+import Register from './pages/auth/Register'; 
 import Home from './pages/Home';
 import SpectaclesFeu from './pages/SpectaclesFeu';
 import Artistes from './pages/Artists'; 
@@ -14,6 +15,7 @@ import './styles/ArtistsCarousel.scss';
 //import './styles/Register2.scss';
 
 import './App.css';
+import "tailwindcss";
 import VerifyEmail from './pages/VerifyEmail';
 
 function AppWrapper() {
