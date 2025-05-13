@@ -3,6 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
+import Register from './pages/auth/Register'; 
 import Home from './pages/Home';
 import SpectaclesFeu from './pages/SpectaclesFeu';
 import Artistes from './pages/Artists'; 
@@ -10,6 +11,7 @@ import Artistes from './pages/Artists';
 import './styles/Global.scss';
 import './styles/HomeStyle.scss';
 import './styles/ArtistsCarousel.scss';
+import './styles/Register.scss';
 
 import './App.css';
 import VerifyEmail from './pages/VerifyEmail';
@@ -31,7 +33,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/spectacles-feu" element={<SpectaclesFeu />} />
         <Route path="/artistes" element={<Artistes />} /> 
-        <Route path='/verify/:token' element={<VerifyEmail />} />
+        <Route path="/verify/:token" element={<VerifyEmail />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </AnimatePresence>
   );

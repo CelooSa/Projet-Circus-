@@ -12,6 +12,7 @@ import logoVesperen from '../assets/Logo-compagnie-Vesperen.webp';
 
 
 
+
 const ImageCarousel = () => {
   const settings = {
     dots: true,
