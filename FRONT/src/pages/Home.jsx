@@ -78,6 +78,7 @@ const Home = () => {
             <li><Link to="/spectacles">Spectacles</Link></li>
             <li><Link to="/univers">L'univers</Link></li>
             <li><Link to="/contact">Contact</Link></li>
+            <li><Link to="/Register">Connexion</Link></li>
           </ul>
         </nav>
       </motion.header>
